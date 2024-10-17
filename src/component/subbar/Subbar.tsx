@@ -29,9 +29,8 @@ const Subbar = () => {
 
   useEffect(() => {
     const jobTitleFromURL = searchParams.get('jobTitle') || jobTitle;
-    console.log(jobTitleFromURL)
 
-    dispatch(setFilter({ jobTitle: jobTitleFromURL }));
+    dispatch(setFilter({ "jobTitle": jobTitleFromURL }));
   }, [dispatch]);
 
   const handleChangeFilter = (value: PositionWork): void => {
