@@ -31,7 +31,7 @@ const Subbar = () => {
     const jobTitleFromURL = searchParams.get('jobTitle') || jobTitle;
 
     dispatch(setFilter({ "jobTitle": jobTitleFromURL }));
-  }, [dispatch]);
+  }, [dispatch, searchParams]);
 
   const handleChangeFilter = (value: PositionWork): void => {
     dispatch(setFilter({ jobTitle: value }));
