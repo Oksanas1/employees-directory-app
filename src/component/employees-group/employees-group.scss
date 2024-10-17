@@ -1,0 +1,13 @@
+.employees-group {
+  padding: 0 $unix;
+  min-width: $min-width;
+
+  @include to-desctop {
+    margin: 0 auto;
+    max-width: $max-width;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+}

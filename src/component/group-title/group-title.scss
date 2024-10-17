@@ -1,0 +1,27 @@
+.employees-group__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 10px;
+
+  @include to-desctop {
+    margin: 25px 25px;
+  }
+
+  &_decoration {
+    display: inline-block;
+    width: 70px;
+    border: 1px solid $color-grey2;
+    flex-grow: 1;
+
+    @include to-desctop {
+      margin: 25px 10px;
+    }
+  }
+
+  &_span {
+    display: inline-block;
+    width: 160px;
+    text-align: center;
+  }
+}

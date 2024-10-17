@@ -1,0 +1,23 @@
+.navigation {
+  min-width: $min-width;
+  padding: 5px $unix 0;
+  border-bottom: 1px solid $color-grey2;
+
+  @include to-desctop {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 10px $unix 0;
+  }
+
+  &__title {
+    display: none;
+
+    @include to-desctop {
+      display: block;
+      padding: 0 10px;
+      font-weight: 700;
+      font-size: toRem(24);
+      color: $text-color-black;
+    }
+  }
+}

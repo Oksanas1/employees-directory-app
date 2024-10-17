@@ -1,0 +1,32 @@
+.report-information {
+  margin: 80px $unix;
+  text-align: center;
+
+  @include to-desctop {
+    margin-top: 150px;
+  }
+
+  &__image {
+    display: inline-block;
+    width: 55px;
+  }
+
+  &__title {
+    margin-top: $unix;
+    font-size: toRems(17);
+  }
+
+  &__content {
+    margin-top: $unix;
+    font-size: toRems(16);
+    color: $text-color-grey;
+  }
+
+  &__link-reload {
+    display: inline-block;
+    margin-top: $unix;
+    font-size: toRems(16);
+    color: $text-color-violet;
+    font-weight: 600;
+  }
+}

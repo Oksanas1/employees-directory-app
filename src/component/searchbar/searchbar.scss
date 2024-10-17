@@ -1,0 +1,51 @@
+.searchbar {
+  position: relative;
+
+  @include to-desctop {
+    margin-top: $unix;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0 45px;
+    border: none;
+    border-radius: $border-radius;
+    background: $color-grey;
+    line-height: 40px;
+    color: $text-color-black;
+    font-size: toRems(15);
+
+    &::placeholder {
+      color: $text-color-grey;
+    }
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: $unix;
+    transform: translateY(-50%);
+    color: $text-color-grey;
+    cursor: pointer;
+    @include icon-size;
+
+    .searchbar__input:focus ~ & {
+      color: $text-color-black;
+    }
+  }
+
+  &__sort-btn {
+    position: absolute;
+    top: 50%;
+    right: $unix;
+    transform: translateY(-50%);
+    border: none;
+    color: $text-color-grey;
+    @include icon-size;
+  }
+}

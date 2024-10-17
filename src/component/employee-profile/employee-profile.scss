@@ -1,0 +1,109 @@
+.employee-profile {
+  min-width: $min-width;
+
+  @include to-desctop {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &__header {
+    padding: 20px 20px 25px;
+    background: $color-grey;
+
+    @include to-desctop {
+      padding: 30px;
+    }
+  }
+
+  &__return-btn {
+    font-size: 10px;
+    height: 10px;
+    transform: translateY(50%);
+
+    @include to-desctop {
+      transform: translateY(0);
+    }
+  }
+
+  &__return-icon {
+    font-size: 10px;
+  }
+
+  &__avatar {
+    margin: 0 auto;
+
+    @include avatar_image(105px, '.employee-profile__avatar-image');
+    @include to-desctop {
+      margin: 30px auto 0;
+    }
+  }
+
+  &__title {
+    margin-top: 25px;
+    font-size: toRems(24);
+    text-align: center;
+  }
+
+  &__tag {
+    color: $text-color-grey3;
+    font-size: toRems(17);
+    font-weight: 400;
+  }
+
+  &__position {
+    margin-top: $unix;
+    text-align: center;
+    color: $text-color-grey2;
+    font-size: toRems(13);
+    font-weight: 400;
+  }
+
+  &__info {
+    padding: 0 $unix 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+  }
+
+  &__birth-date {
+    margin-top: 25px;
+    flex-grow: 2;
+    color: $text-color-black;
+    font-size: toRems(16);
+    font-weight: 500;
+  }
+
+  &__birh-date-icon {
+    margin-right: $unix;
+    font-size: $size-icons;
+  }
+
+  &__age {
+    margin-top: 25px;
+    color: $text-color-grey3;
+    line-height: 20px;
+    font-size: toRems(16);
+    font-weight: 500;
+  }
+
+  &__phone {
+    width: 100%;
+    flex-grow: 3;
+    margin-top: 50px;
+  }
+
+  &__phone-link {
+    color: $text-color-black;
+    font-size: toRems(16);
+    font-weight: 500;
+  }
+
+  &__phone-icon {
+    margin-right: $unix;
+    font-size: $size-icons;
+
+    &::hover {
+      color: $text-color-black;
+    }
+  }
+}

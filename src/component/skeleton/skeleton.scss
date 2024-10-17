@@ -1,0 +1,38 @@
+.skeleton {
+  margin-top: 20px;
+  padding: 0 $unix;
+  min-width: $min-width;
+  list-style-type: none;
+
+  @include to-desctop {
+    margin: 20px auto;
+    max-width: $max-width;
+  }
+
+  &__item {
+    margin-top: $unix;
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #f3f3f6 0%, #fafafa 100%);
+  }
+
+  &__line-height {
+    margin-left: $unix;
+    width: 145px;
+    height: 16px;
+    background: linear-gradient(90deg, #f3f3f6 0%, #fafafa 100%);
+  }
+
+  &__line {
+    margin: 5px 0 0 $unix;
+    width: 80px;
+    height: 12px;
+    background: linear-gradient(90deg, #f3f3f6 0%, #fafafa 100%);
+  }
+}

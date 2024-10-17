@@ -1,0 +1,22 @@
+.spinner {
+  @include icon-size;
+  margin: 10px 0 20px;
+  animation: rotation 1s linear infinite;
+
+  &_center {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

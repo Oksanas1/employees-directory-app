@@ -1,0 +1,18 @@
+a:active,
+a:hover,
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: toRems(15);
+  color: $text-color-black;
+  height: 100vh;
+}

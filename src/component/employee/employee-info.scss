@@ -1,0 +1,37 @@
+.employee-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+
+  &__avatar {
+    @include avatar_image(70px, '.employee-info__avatar-image');
+  }
+
+  &__content {
+    margin-left: $unix;
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-size: toRems(16);
+    color: $text-color-black;
+    font-weight: 500;
+  }
+
+  &__tag {
+    color: $text-color-grey3;
+    font-size: toRems(14);
+    font-weight: 400;
+  }
+
+  &__position {
+    color: $text-color-grey2;
+    font-size: toRems(13);
+    font-weight: 400;
+  }
+
+  &__birth-date {
+    font-size: toRems(15);
+    color: $text-color-grey2;
+  }
+}

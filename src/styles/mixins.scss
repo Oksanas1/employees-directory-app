@@ -1,0 +1,36 @@
+@use 'sass:math';
+
+@function toRems($value, $defaultVal: 16) {
+  @return math.div($value, $defaultVal) * 1rem;
+}
+
+@mixin avatar_image($size, $nested-class) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  overflow: hidden;
+
+  #{$nested-class} {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@mixin icon-size {
+  width: $size-icons;
+  height: $size-icons;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $size-icons;
+}
+
+$mobile-width: 720px;
+
+@mixin to-desctop {
+  @media screen and (min-width: $mobile-width) {
+    @content;
+  }
+}

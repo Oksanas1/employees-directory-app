@@ -1,0 +1,21 @@
+.filter-option {
+  padding: 10px;
+  border-bottom: 2px solid transparentwhite;
+
+  &_checked {
+    border-bottom: 2px solid $color-violet;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    color: $text-color-grey;
+    cursor: pointer;
+
+    &_checked {
+      color: $text-color-black;
+    }
+  }
+}
