@@ -17,7 +17,7 @@ const Searchbar: React.FC = () => {
     const sortFromURL = searchParams.get('sortBy') || sortBy;
     const textFilterFromURL = searchParams.get('textFilter') || textFilter;
 
-    dispatch(setFilter({ textFilterFromURL, sortFromURL }));
+    dispatch(setFilter({ textFilter: textFilterFromURL, sortBy: sortFromURL }));
   }, [dispatch]);
 
   const handleOptionChange = useCallback(
