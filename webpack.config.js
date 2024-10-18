@@ -57,7 +57,7 @@ module.exports = (_, argv) => {
       new CleanWebpackPlugin(),
       new CopyWebpackPlugin({
         patterns: [
-            { from: '_redirects', to: './' }
+            { from: 'netlify.toml', to: './' }
         ],
       }),
       new HtmlWebpackPlugin({
