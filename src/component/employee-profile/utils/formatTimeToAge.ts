@@ -1,4 +1,4 @@
-const formatYearsToString = (years: number): string => {
+export const formatYearsToString = (years: number): string => {
   if (years % 10 === 1 && years % 100 !== 11) {
     return `${years} год`;
   }

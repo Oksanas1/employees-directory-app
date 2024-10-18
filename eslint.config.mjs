@@ -19,7 +19,6 @@ export default [
       prettier: prettierPlugin,
     },
     rules: {
-      'prettier/prettier': ['error'],
       'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
       'react/prop-types': 0,
       'no-console': ['warn', { allow: ['warn', 'error'] }],
@@ -35,6 +34,20 @@ export default [
       'import/no-cycle': 0,
       'no-undef': 'off',
       'quotes': ['error', 'single', { avoidEscape: true }],
+      'no-constant-condition': 0,
+      'no-shadow': 0,
+      'no-restricted-globals': 0,
+      'no-underscore-dangle': 0,
+      'func-names': 0,
+      'import/no-dynamic-require': 0,
+      'import/prefer-default-export': 0,
+      'prefer-template': 0,
+      'prettier/prettier': [
+        'warn',
+        {
+          'endOfLine': 'auto'
+        }
+      ]
     },
     settings: {
       react: {
