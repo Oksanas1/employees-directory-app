@@ -13,8 +13,8 @@ import './employee-profile.scss';
 const EmployeeProfile: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const { employees, statusQuery } = useSelector((state: RootState) => state.employees);
-  let isLoading = true;
+  const { employees } = useSelector((state: RootState) => state.employees);
+  const [isLoading, setIsLoading] = useState(true);
   const [employee, setEmployee] = useState<Employee | null>(null);
 
   useEffect(() => {
@@ -25,11 +25,11 @@ const EmployeeProfile: React.FC = () => {
       getEmployeeByIdFromDB(id)
         .then(fetchedEmployee => {
           setEmployee(fetchedEmployee);
-          isLoading = false;
+          setIsLoading(false);
         })
         .catch(err => {
           console.error(err);
-          isLoading = false;
+          setIsLoading(false);
           setEmployee(null);
         });
     }
