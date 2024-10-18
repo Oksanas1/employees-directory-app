@@ -9,7 +9,7 @@ import ErrorPage from './component/error-page/ErrorPage';
 
 const App: React.FC = () => (
   <Provider store={store}>
-    <Router basename="/app">
+    <Router basename="/">
       <Routes>
         <Route path="/" element={<EmployeeList />} />
         <Route path="/employees/:id" element={<EmployeeProfile />} />
