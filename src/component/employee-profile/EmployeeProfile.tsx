@@ -14,7 +14,7 @@ const EmployeeProfile: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { employees, statusQuery } = useSelector((state: RootState) => state.employees);
-  const isLoading = statusQuery === 'loading';
+  let isLoading = true;
   const [employee, setEmployee] = useState<Employee | null>(null);
 
   useEffect(() => {
@@ -25,9 +25,11 @@ const EmployeeProfile: React.FC = () => {
       getEmployeeByIdFromDB(id)
         .then(fetchedEmployee => {
           setEmployee(fetchedEmployee);
+          isLoading = false;
         })
         .catch(err => {
           console.error(err);
+          isLoading = false;
           setEmployee(null);
         });
     }
