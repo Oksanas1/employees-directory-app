@@ -27,10 +27,7 @@ const FilterOption: React.FC<FilterOptionProps> = ({ text, jobTitle, onOptionCha
         htmlFor={nameValue}
         className={classNames('filter-option__label', {
           'filter-option__label_checked': jobTitle === text,
-        })}
-      >
-        {text}
-      </label>
+        })}>{text}</label>
     </div>
   );
 };

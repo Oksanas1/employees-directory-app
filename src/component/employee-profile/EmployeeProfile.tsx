@@ -59,7 +59,8 @@ const EmployeeProfile: React.FC = () => {
           <img alt="User Avatar" src={avatar} className="employee-profile__avatar-image" />
         </div>
         <h2 className="employee-profile__title">
-          {name} {tag && <span className="employee-profile__tag">{tag}</span>}
+          {name}
+          {tag && <span className="employee-profile__tag">{tag}</span>}
         </h2>
         <p className="employee-profile__position">
           {position[0].toUpperCase() + position.slice(1)}
