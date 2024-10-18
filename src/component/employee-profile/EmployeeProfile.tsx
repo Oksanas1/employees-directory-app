@@ -1,30 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import ErrorPage from '../error-page/ErrorPage';
 import Spinner from '../spinner/Spinner';
-import { AppDispatch, RootState } from '../../store';
-import { fetchEmployees, type Employee } from '../../state/employeesSlice';
+import { RootState } from '../../store';
+import { type Employee } from '../../state/employeesSlice';
 import { formatTimestampToYears, formatTimestampToFullDateString } from './utils/formatTimeToAge';
 import { formatPhoneNumber } from './utils/formatPhoneNumber';
+import { getEmployeeByIdFromDB } from '../../getawey';
 import './employee-profile.scss';
 
 const EmployeeProfile: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { employees, statusQuery } = useSelector((state: RootState) => state.employees);
   const isLoading = statusQuery === 'loading';
+  const [employee, setEmployee] = useState<Employee | null>(null);
 
   useEffect(() => {
-    if (!employees.length) {
-      dispatch(fetchEmployees());
+    if (employees.length) {
+      const foundEmployee = employees.find(emp => emp.id === id) || null;
+      setEmployee(foundEmployee);
+    } else if (!employees.length && id) {
+      getEmployeeByIdFromDB(id)
+        .then(fetchedEmployee => {
+          setEmployee(fetchedEmployee);
+        })
+        .catch(err => {
+          console.error(err);
+          setEmployee(null);
+        });
     }
-  }, [dispatch, employees]);
+  }, [employees, id]);
 
-  const employee: Employee | null = employees.find(emp => emp.id === id) || null;
-
-  if (isLoading) {
+  if (isLoading && !employee) {
     return (
       <div className="spinner_center">
         <Spinner />
