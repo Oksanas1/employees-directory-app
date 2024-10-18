@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import EmployeeInfo from '../employee/EmployeeInfo';
 import GroupTitle from '../group-title/GroupTitle';
-import { Employee } from '@/state/employeesSlice';
+import { Employee } from '../../state/employeesSlice';
 import './employees-group.scss';
 
 interface EmployeesGroupProp {
@@ -25,7 +25,7 @@ const EmployeesGroup: React.FC<EmployeesGroupProp> = memo(
         ))}
       </ul>
     </div>
-  ),
+  )
 );
 
 export default EmployeesGroup;

@@ -18,14 +18,14 @@ const ReportInformation: React.FC<ReportInformationProps> = ({
 }) => (
   <div className="report-information">
     <img
-      src={loope === nameImage ? loope : enlo}
+      src={'loope' === nameImage ? loope : enlo}
       alt="error"
       className="report-information__image"
     />
     <h4 className="report-information__title">{title}</h4>
     <p className="report-information__content">{text}</p>
     {isNeedReload && (
-      <a href={window.location.href} className="report-information__link-reload">
+      <a href="/" className="report-information__link-reload">
         Reload page
       </a>
     )}

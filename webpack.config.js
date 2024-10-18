@@ -1,4 +1,4 @@
-
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -55,6 +55,11 @@ module.exports = (_, argv) => {
     plugins: [
       new webpack.ProgressPlugin(),
       new CleanWebpackPlugin(),
+      new CopyWebpackPlugin({
+        patterns: [
+            { from: '_redirects', to: './' }
+        ],
+      }),
       new HtmlWebpackPlugin({
         template: './src/index.html',
         scriptLoading: 'blocking',

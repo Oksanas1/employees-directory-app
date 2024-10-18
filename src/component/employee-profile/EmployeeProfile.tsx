@@ -21,7 +21,7 @@ const EmployeeProfile: React.FC = () => {
     if (employees.length) {
       const foundEmployee = employees.find(emp => emp.id === id) || null;
       setEmployee(foundEmployee);
-    } else if (!employees.length && id) {
+    } else if (id) {
       getEmployeeByIdFromDB(id)
         .then(fetchedEmployee => {
           setEmployee(fetchedEmployee);

@@ -24,7 +24,7 @@ export const selectSortedEmployees = createSelector(
           groups[birthYear].push(employee);
           return groups;
         }, {});
-    } else {
+    } else if (updatedEmployees.length) {
       groupedEmployees.text = updatedEmployees.sort();
     }
 
