@@ -1,4 +1,4 @@
-# Project: Calendar
+# Project: Employees
 
 ### [Site link](https://employees-directoies.netlify.app/)
 
