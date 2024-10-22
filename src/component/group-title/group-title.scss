@@ -1,27 +1,31 @@
-.employees-group__title {
+.group-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 30px 10px;
 
   @include to-desctop {
-    margin: 25px 25px;
+    margin: 15px 25px;
   }
 
-  &_decoration {
+  &__decoration {
     display: inline-block;
     width: 70px;
     border: 1px solid $color-grey2;
     flex-grow: 1;
 
     @include to-desctop {
-      margin: 25px 10px;
+      margin: 25px 0;
     }
   }
 
-  &_span {
+  &__span {
     display: inline-block;
     width: 160px;
+    margin: 0 $unix;
+    color: $text-color-grey;
     text-align: center;
+    font-weight: 500;
+    line-height: 1.3;
   }
 }

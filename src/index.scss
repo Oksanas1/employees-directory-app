@@ -11,8 +11,8 @@ button {
 }
 
 body {
+  height: 100vh;
   font-family: 'Inter', sans-serif;
   font-size: toRems(15);
   color: $text-color-black;
-  height: 100vh;
 }

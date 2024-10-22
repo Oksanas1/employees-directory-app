@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import EmployeeProfile from './component/employee-profile/EmployeeProfile';
 import EmployeeList from './component/employee-list/EmployeeList';
-import './index.scss';
 import ErrorPage from './component/error-page/ErrorPage';
+import './index.scss';
 
 const App: React.FC = () => (
   <Provider store={store}>

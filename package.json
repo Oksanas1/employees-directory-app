@@ -9,7 +9,7 @@
     "start": "webpack serve --mode=development --devtool source-map",
     "build": "webpack --mode=production",
     "lint": "eslint 'src/*'",
-    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}'"
+    "lint:fix": "eslint 'src/*' --fix"
   },
   "keywords": [],
   "author": "Oksana Khainus",

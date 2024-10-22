@@ -18,9 +18,9 @@
   }
 }
 
-@mixin icon-size {
-  width: $size-icons;
-  height: $size-icons;
+@mixin icon-size($size: $size-icons) {
+  width: $size;
+  height: $size;
   display: flex;
   justify-content: center;
   align-items: center;

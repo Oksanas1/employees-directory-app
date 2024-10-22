@@ -6,7 +6,7 @@
   @include to-desctop {
     max-width: $max-width;
     margin: 0 auto;
-    padding: 10px $unix 0;
+    padding: 15px $unix 0;
   }
 
   &__title {
@@ -16,8 +16,9 @@
       display: block;
       padding: 0 10px;
       font-weight: 700;
-      font-size: toRem(24);
+      font-size: toRems(24);
       color: $text-color-black;
+      line-height: 1.2;
     }
   }
 }

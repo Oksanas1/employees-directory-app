@@ -5,22 +5,22 @@ import { Employee, FilterOption } from './employeesSlice';
 export const selectFilteredEmployees = createSelector(
   [(state: RootState) => state.employees.employees, (state: RootState) => state.employees.filter],
   (employees: Employee[], filter: FilterOption): Employee[] => {
-    const { jobTitle, textFilter } = filter;
+    const { position, searchText } = filter;
 
     let updatedEmployees = [...employees];
 
-    if (textFilter) {
+    if (searchText) {
       updatedEmployees = updatedEmployees.filter(
         ({ name, email, tag }) =>
-          name.toLowerCase().includes(textFilter.toLowerCase()) ||
-          email.toLowerCase().includes(textFilter.toLowerCase()) ||
-          (tag && tag.toLowerCase().includes(textFilter.toLowerCase())),
+          name.toLowerCase().includes(searchText.toLowerCase()) ||
+          email.toLowerCase().includes(searchText.toLowerCase()) ||
+          (tag && tag.toLowerCase().includes(searchText.toLowerCase())),
       );
     }
 
-    if (jobTitle && jobTitle !== 'Все') {
+    if (position && position !== 'Все') {
       updatedEmployees = updatedEmployees.filter(({ position }) =>
-        jobTitle.toLowerCase().includes(position.toLowerCase()),
+        position.toLowerCase().includes(position.toLowerCase()),
       );
     }
 

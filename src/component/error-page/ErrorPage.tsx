@@ -1,10 +1,9 @@
 import React from 'react';
-import Navigation from '../navigation/Navigation';
 import ReportInformation from '../report-information/ReportInformation';
+import './error-page.scss';
 
 const ErrorPage = () => (
-  <div>
-    <Navigation />
+  <div className='error-page'>
     <ReportInformation
       title="Unexpected error occurred..."
       text="Try again a bit later"

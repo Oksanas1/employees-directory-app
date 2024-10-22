@@ -11,13 +11,13 @@ const Searchbar: React.FC = () => {
   const [isOpenModalSortOption, setIsOpenModalSortOption] = useState(false);
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { textFilter, sortBy } = useSelector((state: RootState) => state.employees.filter);
+  const { searchText, sortBy } = useSelector((state: RootState) => state.employees.filter);
 
   useEffect(() => {
     const sortFromURL = searchParams.get('sortBy') || sortBy;
-    const textFilterFromURL = searchParams.get('textFilter') || textFilter;
+    const searchTextFromURL = searchParams.get('searchText') || searchText;
 
-    dispatch(setFilter({ "textFilter": textFilterFromURL, 'sortBy': sortFromURL }));
+    dispatch(setFilter({ "searchText": searchTextFromURL, 'sortBy': sortFromURL }));
   }, [dispatch, searchParams]);
 
   const handleOptionChange = useCallback(
@@ -43,9 +43,9 @@ const Searchbar: React.FC = () => {
         id="searchTextInput"
         className="searchbar__input"
         placeholder="Enter name, tag, email..."
-        value={textFilter}
+        value={searchText}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleOptionChange('textFilter', e.target.value)
+          handleOptionChange('searchText', e.target.value)
         }
       />
       <label htmlFor="searchTextInput" className="searchbar__label">

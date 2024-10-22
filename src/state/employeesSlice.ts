@@ -7,8 +7,8 @@ export type SortOption = 'ageSort' | 'nameSort';
 export type StatusQuery = 'loading' | 'succeeded' | 'failed';
 
 export type FilterOption = {
-  textFilter: string;
-  jobTitle: PositionWork;
+  searchText: string;
+  position: PositionWork;
   sortBy: SortOption;
 };
 
@@ -34,7 +34,7 @@ const initialState: EmployeesState = {
   employees: [],
   statusQuery: 'loading',
   error: null,
-  filter: { textFilter: '', jobTitle: 'Все', sortBy: 'nameSort' },
+  filter: { searchText: '', position: 'Все', sortBy: 'nameSort' },
 };
 
 export const fetchEmployees = createAsyncThunk<Employee[]>(

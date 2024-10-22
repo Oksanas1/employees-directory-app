@@ -1,6 +1,6 @@
 .filter-option {
-  padding: 10px;
-  border-bottom: 2px solid transparentwhite;
+  padding: 10px 13px 5px;
+  border-bottom: 2px solid transparent;
 
   &_checked {
     border-bottom: 2px solid $color-violet;
@@ -11,7 +11,9 @@
   }
 
   &__label {
+    font-size: toRems(15);
     color: $text-color-grey;
+    line-height: 1.5;
     cursor: pointer;
 
     &_checked {

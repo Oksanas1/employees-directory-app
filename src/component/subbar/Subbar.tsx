@@ -24,18 +24,18 @@ const listOfFilterOption: Option[] = [
 
 const Subbar = () => {
   const dispatch = useDispatch();
-  const { jobTitle } = useSelector((state: RootState) => state.employees.filter);
+  const { position } = useSelector((state: RootState) => state.employees.filter);
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    const jobTitleFromURL = searchParams.get('jobTitle') || jobTitle;
+    const positionFromURL = searchParams.get('position') || position;
 
-    dispatch(setFilter({ "jobTitle": jobTitleFromURL }));
+    dispatch(setFilter({ "position": positionFromURL }));
   }, [dispatch, searchParams]);
 
   const handleChangeFilter = (value: PositionWork): void => {
     dispatch(setFilter({ jobTitle: value }));
-    updateURLParams('jobTitle', value, searchParams, setSearchParams);
+    updateURLParams('position', value, searchParams, setSearchParams);
   };
 
   return (
@@ -44,7 +44,7 @@ const Subbar = () => {
         <FilterOption
           key={id}
           text={option}
-          jobTitle={jobTitle}
+          position={position}
           onOptionChange={handleChangeFilter}
         />
       ))}
