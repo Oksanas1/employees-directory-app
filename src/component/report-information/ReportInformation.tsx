@@ -3,7 +3,7 @@ import './report-information.scss';
 import loope from '../../images/loope.png';
 import enlo from '../../images/loope.png';
 
-interface ReportInformationProps {
+type ReportInformationProps = {
   title: string;
   text: string;
   nameImage: string;

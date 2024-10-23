@@ -3,7 +3,7 @@ import type { Employee } from '../../state/employeesSlice';
 import { formatTimestampToDateString } from './utils/dateTransforme';
 import './employee-info.scss';
 
-interface EmployeeInfoProps {
+type EmployeeInfoProps = {
   employee: Employee;
   isSortByDate: boolean;
 }

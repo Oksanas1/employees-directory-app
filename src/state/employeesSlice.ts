@@ -12,7 +12,7 @@ export type FilterOption = {
   sortBy: SortOption;
 };
 
-export interface Employee {
+export type Employee = {
   id: string;
   name: string;
   position: EmployeePosition;
@@ -23,7 +23,7 @@ export interface Employee {
   email: string;
 }
 
-export interface EmployeesState {
+export type EmployeesState = {
   employees: Employee[];
   statusQuery: StatusQuery;
   error: string | null;

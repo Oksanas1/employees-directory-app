@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { SortOption } from '../../state/employeesSlice';
 import './sort-options.scss';
 
-interface SortOptionsProps {
+type SortOptionsProps = {
   sortBy: SortOption;
   onOptionChange: (nameOption: string, value: string) => void;
   handleClickCloseModal: () => void;

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { PositionWork } from '../../state/employeesSlice';
 import './filter-option.scss';
 
-interface FilterOptionProps {
+type FilterOptionProps = {
   text: string;
   position: PositionWork;
   onOptionChange: (value: PositionWork) => void;

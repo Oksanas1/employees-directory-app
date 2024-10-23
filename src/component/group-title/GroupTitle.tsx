@@ -1,7 +1,7 @@
 import React from 'react';
 import './group-title.scss';
 
-interface GroupTitleProps {
+type GroupTitleProps = {
   groupKey: string;
 }
 

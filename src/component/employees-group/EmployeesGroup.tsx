@@ -5,7 +5,7 @@ import GroupTitle from '../group-title/GroupTitle';
 import { Employee } from '../../state/employeesSlice';
 import './employees-group.scss';
 
-interface EmployeesGroupProp {
+type EmployeesGroupProp = {
   isSortByAge: boolean;
   groupKey: string;
   employees: Employee[];
