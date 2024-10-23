@@ -17,7 +17,7 @@ const Searchbar: React.FC = () => {
     const sortFromURL = searchParams.get('sortBy') || sortBy;
     const searchTextFromURL = searchParams.get('searchText') || searchText;
 
-    dispatch(setFilter({ "searchText": searchTextFromURL, 'sortBy': sortFromURL }));
+    dispatch(setFilter({ searchText: searchTextFromURL, sortBy: sortFromURL }));
   }, [dispatch, searchParams]);
 
   const handleOptionChange = useCallback(
@@ -31,7 +31,7 @@ const Searchbar: React.FC = () => {
   const handleClickOpenModal = (): void => {
     setIsOpenModalSortOption(true);
   };
-  
+
   const handleClickCloseModal = (): void => {
     setIsOpenModalSortOption(false);
   };

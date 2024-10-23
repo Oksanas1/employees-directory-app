@@ -7,7 +7,7 @@ export const formatTimestampToDateString = (value: number): string => {
   const date = new Date(value);
   const options: TimeOptions = { day: '2-digit', month: 'short' };
 
-  const result = date.toLocaleDateString('ru-RU', options);
+  const result = new Intl.DateTimeFormat('en-GB', options).format(date);
 
-  return result.slice(0, result.length - 1);
+  return result;
 };

@@ -47,6 +47,7 @@
   &__close-btn {
     @include to-desctop {
       border-radius: 50%;
+      background: $color-grey;
       @include icon-size(25px);
     }
 
@@ -60,7 +61,6 @@
       @include to-desctop {
         content: 'x';
         color: $text-color-grey;
-        background: $color-grey;
       }
     }
   }

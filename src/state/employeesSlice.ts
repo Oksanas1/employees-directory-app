@@ -1,14 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getEmployeeFromDB } from '../getawey/index';
 
-export type PositionWork = 'Все' | 'Designers' | 'Analysts' | 'Managers' | 'iOS' | 'Android';
-export type EmployeePosition = 'designer' | 'analyst' | 'manager' | 'iOS' | 'android';
+export type EmployeePosition = 'all' | 'designer' | 'analyst' | 'manager' | 'iOS' | 'android';
 export type SortOption = 'ageSort' | 'nameSort';
 export type StatusQuery = 'loading' | 'succeeded' | 'failed';
 
 export type FilterOption = {
   searchText: string;
-  position: PositionWork;
+  position: EmployeePosition;
   sortBy: SortOption;
 };
 
@@ -21,20 +20,20 @@ export type Employee = {
   avatar: string;
   tag: string | null;
   email: string;
-}
+};
 
 export type EmployeesState = {
   employees: Employee[];
   statusQuery: StatusQuery;
   error: string | null;
   filter: FilterOption;
-}
+};
 
 const initialState: EmployeesState = {
   employees: [],
   statusQuery: 'loading',
   error: null,
-  filter: { searchText: '', position: 'Все', sortBy: 'nameSort' },
+  filter: { searchText: '', position: 'all', sortBy: 'nameSort' },
 };
 
 export const fetchEmployees = createAsyncThunk<Employee[]>(

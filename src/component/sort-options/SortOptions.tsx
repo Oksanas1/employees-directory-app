@@ -7,7 +7,7 @@ type SortOptionsProps = {
   sortBy: SortOption;
   onOptionChange: (nameOption: string, value: string) => void;
   handleClickCloseModal: () => void;
-}
+};
 
 const SortOptions: React.FC<SortOptionsProps> = ({
   sortBy,
@@ -23,7 +23,7 @@ const SortOptions: React.FC<SortOptionsProps> = ({
       <fieldset className="sort-options__content" onClick={event => handleContentClick(event)}>
         <div className="sort-options__header">
           <button className="sort-options__close-btn" onClick={handleClickCloseModal}></button>
-          <h4 className="sort-options__title">Сортировка</h4>
+          <h4 className="sort-options__title">Sotr</h4>
         </div>
         <label
           htmlFor="nameSort"
@@ -40,7 +40,7 @@ const SortOptions: React.FC<SortOptionsProps> = ({
             className="sort-options__input"
             onChange={e => onOptionChange('sortBy', e.target.value as SortOption)}
           />
-          По алфавиту
+          By name
         </label>
         <label
           htmlFor="ageSort"
@@ -57,7 +57,7 @@ const SortOptions: React.FC<SortOptionsProps> = ({
             className="sort-options__input"
             onChange={e => onOptionChange('sortBy', e.target.value as SortOption)}
           />
-          По дню рождения
+          By date of birth
         </label>
       </fieldset>
     </div>

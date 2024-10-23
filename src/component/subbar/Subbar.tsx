@@ -2,24 +2,26 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import FilterOption from '../filter-oprion/FilterOption';
-import { setFilter } from '../../state/employeesSlice';
 import { RootState } from '../../store';
-import type { PositionWork } from '../../state/employeesSlice';
+import { setFilter, type EmployeePosition } from '../../state/employeesSlice';
 import { updateURLParams } from '../common';
 import './subbar.scss';
+
+export type PositionWork = 'All' | 'Designers' | 'Analysts' | 'Managers' | 'iOS' | 'Android';
 
 type Option = {
   id: number;
   option: PositionWork;
+  positionEmployee: EmployeePosition;
 };
 
 const listOfFilterOption: Option[] = [
-  { id: 1, option: 'Все' },
-  { id: 2, option: 'Designers' },
-  { id: 3, option: 'Analysts' },
-  { id: 4, option: 'Managers' },
-  { id: 5, option: 'iOS' },
-  { id: 6, option: 'Android' },
+  { id: 1, option: 'All', positionEmployee: 'all' },
+  { id: 2, option: 'Designers', positionEmployee: 'designer' },
+  { id: 3, option: 'Analysts', positionEmployee: 'analyst' },
+  { id: 4, option: 'Managers', positionEmployee: 'manager' },
+  { id: 5, option: 'iOS', positionEmployee: 'iOS' },
+  { id: 6, option: 'Android', positionEmployee: 'android' },
 ];
 
 const Subbar = () => {
@@ -29,22 +31,22 @@ const Subbar = () => {
 
   useEffect(() => {
     const positionFromURL = searchParams.get('position') || position;
+    dispatch(setFilter({ position: positionFromURL }));
+  }, [dispatch, searchParams, position]);
 
-    dispatch(setFilter({ "position": positionFromURL }));
-  }, [dispatch, searchParams]);
-
-  const handleChangeFilter = (value: PositionWork): void => {
-    dispatch(setFilter({ jobTitle: value }));
+  const handleChangeFilter = (value: EmployeePosition): void => {
+    dispatch(setFilter({ position: value }));
     updateURLParams('position', value, searchParams, setSearchParams);
   };
 
   return (
     <div className="subbar">
-      {listOfFilterOption.map(({ id, option }) => (
+      {listOfFilterOption.map(({ id, option, positionEmployee }) => (
         <FilterOption
           key={id}
           text={option}
-          position={position}
+          positionEmployee={positionEmployee}
+          selectedPosition={position}
           onOptionChange={handleChangeFilter}
         />
       ))}

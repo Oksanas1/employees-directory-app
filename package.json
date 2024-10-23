@@ -8,8 +8,8 @@
     "test:watch": "jest --watch",
     "start": "webpack serve --mode=development --devtool source-map",
     "build": "webpack --mode=production",
-    "lint": "eslint 'src/*'",
-    "lint:fix": "eslint 'src/*' --fix"
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "keywords": [],
   "author": "Oksana Khainus",

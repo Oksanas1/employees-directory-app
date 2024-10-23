@@ -1,37 +1,21 @@
-import { formatYearsToString } from '../formatTimeToAge';
+import { formatTimestampToYears } from '../formatTimeToAge';
 
-it('should return "1 год" for 1 year', () => {
-  expect(formatYearsToString(1)).toBe('1 год');
+it('should return "0 years" for the current date', () => {
+  const currentTimestamp = Date.now();
+  expect(formatTimestampToYears(currentTimestamp)).toBe('0 years');
 });
 
-it('should return "2 года" for 2 years', () => {
-  expect(formatYearsToString(2)).toBe('2 года');
+it('should return "1 year" for a date one year ago', () => {
+  const oneYearAgo = new Date().setFullYear(new Date().getFullYear() - 1);
+  expect(formatTimestampToYears(oneYearAgo)).toBe('1 years');
 });
 
-it('should return "5 лет" for 5 years', () => {
-  expect(formatYearsToString(5)).toBe('5 лет');
+it('should return "10 years" for a date 10 years ago', () => {
+  const tenYearsAgo = new Date().setFullYear(new Date().getFullYear() - 10);
+  expect(formatTimestampToYears(tenYearsAgo)).toBe('10 years');
 });
 
-it('should return "21 год" for 21 year', () => {
-  expect(formatYearsToString(21)).toBe('21 год');
-});
-
-it('should return "22 года" for 22 years', () => {
-  expect(formatYearsToString(22)).toBe('22 года');
-});
-
-it('should return "25 лет" for 25 years', () => {
-  expect(formatYearsToString(25)).toBe('25 лет');
-});
-
-it('should return "111 лет" for 111 years', () => {
-  expect(formatYearsToString(111)).toBe('111 лет');
-});
-
-it('should return "101 год" for 101 year', () => {
-  expect(formatYearsToString(101)).toBe('101 год');
-});
-
-it('should return "102 года" for 102 years', () => {
-  expect(formatYearsToString(102)).toBe('102 года');
+it('should return "100 years" for a date 100 years ago', () => {
+  const hundredYearsAgo = new Date().setFullYear(new Date().getFullYear() - 100);
+  expect(formatTimestampToYears(hundredYearsAgo)).toBe('100 years');
 });

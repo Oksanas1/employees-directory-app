@@ -7,7 +7,6 @@ export const updateURLParams = (
   setSearchParams: (nextInit: URLSearchParamsInit) => void,
 ): void => {
   const newParams = new URLSearchParams(searchParams);
-
   if (value) {
     newParams.set(nameOption, value);
   } else {

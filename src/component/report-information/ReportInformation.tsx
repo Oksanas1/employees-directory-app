@@ -8,7 +8,7 @@ type ReportInformationProps = {
   text: string;
   nameImage: string;
   isNeedReload: boolean;
-}
+};
 
 const ReportInformation: React.FC<ReportInformationProps> = ({
   title,

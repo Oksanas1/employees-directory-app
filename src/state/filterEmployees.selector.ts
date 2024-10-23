@@ -18,10 +18,8 @@ export const selectFilteredEmployees = createSelector(
       );
     }
 
-    if (position && position !== 'Все') {
-      updatedEmployees = updatedEmployees.filter(({ position }) =>
-        position.toLowerCase().includes(position.toLowerCase()),
-      );
+    if (position && position !== 'all') {
+      updatedEmployees = updatedEmployees.filter(employee => position.includes(employee.position));
     }
 
     return updatedEmployees;

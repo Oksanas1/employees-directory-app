@@ -3,8 +3,6 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import prettierPlugin from "eslint-plugin-prettier";
-import path from 'path';
-import webpack from 'webpack';
 
 export default [
   {ignores: ['node_modules/**', 'dist/**', '/webpack.config.js'],},
@@ -33,7 +31,6 @@ export default [
       'prefer-arrow-callback': 1,
       'import/no-cycle': 0,
       'no-undef': 'off',
-      'quotes': ['error', 'single', { avoidEscape: true }],
       'no-constant-condition': 0,
       'no-shadow': 0,
       'no-restricted-globals': 0,
@@ -42,6 +39,7 @@ export default [
       'import/no-dynamic-require': 0,
       'import/prefer-default-export': 0,
       'prefer-template': 0,
+      'quotes': ['error', 'single'],
       'prettier/prettier': [
         'warn',
         {

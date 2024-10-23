@@ -6,9 +6,9 @@ import './employee-info.scss';
 type EmployeeInfoProps = {
   employee: Employee;
   isSortByDate: boolean;
-}
+};
 
-const EmployeeInfo: React.FC<EmployeeInfoProps> = React.memo(({ employee, isSortByDate }) => {
+const EmployeeInfo: React.FC<EmployeeInfoProps> = ({ employee, isSortByDate }) => {
   const { birthDate, avatar, name, tag, position } = employee;
 
   const titlePosition =
@@ -30,6 +30,6 @@ const EmployeeInfo: React.FC<EmployeeInfoProps> = React.memo(({ employee, isSort
       )}
     </div>
   );
-});
+};
 
 export default EmployeeInfo;
