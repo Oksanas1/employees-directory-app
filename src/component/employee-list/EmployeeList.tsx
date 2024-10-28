@@ -5,7 +5,7 @@ import ReportInformation from '../report-information/ReportInformation';
 import SkeletonLoader from '../skeleton/Skeleton';
 import ErrorPage from '../error-page/ErrorPage';
 import { RootState, AppDispatch } from '../../store';
-import { fetchEmployees } from '../../state/employeesSlice';
+import { fetchEmployees, setFilter } from '../../state/employeesSlice';
 import { selectSortedEmployees } from '../../state/sortEmployees.selector';
 import EmployeesGroup from '../employees-group/EmployeesGroup';
 
@@ -15,6 +15,7 @@ const EmployeeList: React.FC = () => {
   const filteredEmployees = useSelector(selectSortedEmployees);
 
   useEffect(() => {
+    dispatch(setFilter(filter));
     dispatch(fetchEmployees());
   }, [dispatch]);
 

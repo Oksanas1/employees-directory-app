@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { getEmployeeFromDB } from '../getawey/index';
 
 export type EmployeePosition = 'all' | 'designer' | 'analyst' | 'manager' | 'iOS' | 'android';
@@ -29,11 +29,17 @@ export type EmployeesState = {
   filter: FilterOption;
 };
 
+const initialSort: FilterOption = {
+  sortBy: (localStorage.getItem('sortBy') as SortOption) || 'nameSort',
+  searchText: localStorage.getItem('searchText') || '',
+  position: (localStorage.getItem('position') as EmployeePosition) || 'all',
+};
+
 const initialState: EmployeesState = {
   employees: [],
   statusQuery: 'loading',
   error: null,
-  filter: { searchText: '', position: 'all', sortBy: 'nameSort' },
+  filter: initialSort,
 };
 
 export const fetchEmployees = createAsyncThunk<Employee[]>(
@@ -48,8 +54,20 @@ const employeesSlice = createSlice({
   name: 'employees',
   initialState,
   reducers: {
-    setFilter(state, action) {
-      state.filter = { ...state.filter, ...action.payload };
+    setFilter: (state, action) => {
+      const { sortBy, searchText, position } = action.payload;
+      if (sortBy) {
+        state.filter.sortBy = sortBy;
+        localStorage.setItem('sortBy', sortBy);
+      }
+      if (searchText || searchText === '') {
+        state.filter.searchText = searchText;
+        localStorage.setItem('searchText', searchText);
+      }
+      if (position) {
+        state.filter.position = position;
+        localStorage.setItem('position', position);
+      }
     },
   },
   extraReducers: builder => {

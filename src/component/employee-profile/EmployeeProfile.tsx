@@ -13,7 +13,7 @@ import './employee-profile.scss';
 const EmployeeProfile: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const { employees } = useSelector((state: RootState) => state.employees);
+  const { employees, filter  } = useSelector((state: RootState) => state.employees);
   const [isLoading, setIsLoading] = useState(true);
   const [employee, setEmployee] = useState<Employee | null>(null);
 

@@ -32,6 +32,7 @@ const Subbar = () => {
 
   useEffect(() => {
     dispatch(setFilter({ position: positionFromURL }));
+    updateURLParams('position', positionFromURL, searchParams, setSearchParams);
   }, [dispatch, searchParams, position]);
 
   const handleChangeFilter = (value: EmployeePosition): void => {

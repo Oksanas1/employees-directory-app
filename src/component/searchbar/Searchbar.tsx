@@ -17,6 +17,8 @@ const Searchbar: React.FC = () => {
 
   useEffect(() => {
     dispatch(setFilter({ searchText: searchTextFromURL, sortBy: sortFromURL }));
+    updateURLParams('sortBy', sortFromURL, searchParams, setSearchParams);
+    updateURLParams('searchText', searchTextFromURL, searchParams, setSearchParams);
   }, [dispatch, searchParams]);
 
   const handleOptionChange = useCallback(
