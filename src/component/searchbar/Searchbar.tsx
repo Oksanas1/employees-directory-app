@@ -12,11 +12,10 @@ const Searchbar: React.FC = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const { searchText, sortBy } = useSelector((state: RootState) => state.employees.filter);
+  const sortFromURL = searchParams.get('sortBy') || sortBy;
+  const searchTextFromURL = searchParams.get('searchText') || searchText;
 
   useEffect(() => {
-    const sortFromURL = searchParams.get('sortBy') || sortBy;
-    const searchTextFromURL = searchParams.get('searchText') || searchText;
-
     dispatch(setFilter({ searchText: searchTextFromURL, sortBy: sortFromURL }));
   }, [dispatch, searchParams]);
 

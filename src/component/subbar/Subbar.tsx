@@ -28,9 +28,9 @@ const Subbar = () => {
   const dispatch = useDispatch();
   const { position } = useSelector((state: RootState) => state.employees.filter);
   const [searchParams, setSearchParams] = useSearchParams();
+  const positionFromURL = searchParams.get('position') || position;
 
   useEffect(() => {
-    const positionFromURL = searchParams.get('position') || position;
     dispatch(setFilter({ position: positionFromURL }));
   }, [dispatch, searchParams, position]);
 
