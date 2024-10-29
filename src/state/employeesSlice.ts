@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getEmployeeFromDB } from '../getawey/index';
 
 export type EmployeePosition = 'all' | 'designer' | 'analyst' | 'manager' | 'iOS' | 'android';

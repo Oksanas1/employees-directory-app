@@ -1,32 +1,24 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import SortOptions from '../sort-options/SortOptions';
 import { RootState } from '../../store';
-import { setFilter } from '../../state/employeesSlice';
-import { updateURLParams } from '../common';
+import { useCombinedURLParams } from '../common';
 import './searchbar.scss';
 
 const Searchbar: React.FC = () => {
   const [isOpenModalSortOption, setIsOpenModalSortOption] = useState(false);
-  const dispatch = useDispatch();
-  const [searchParams, setSearchParams] = useSearchParams();
   const { searchText, sortBy } = useSelector((state: RootState) => state.employees.filter);
-  const sortFromURL = searchParams.get('sortBy') || sortBy;
-  const searchTextFromURL = searchParams.get('searchText') || searchText;
+  const { initializeParams, updateCombinedParams } = useCombinedURLParams();
 
   useEffect(() => {
-    dispatch(setFilter({ searchText: searchTextFromURL, sortBy: sortFromURL }));
-    updateURLParams('sortBy', sortFromURL, searchParams, setSearchParams);
-    updateURLParams('searchText', searchTextFromURL, searchParams, setSearchParams);
-  }, [dispatch, searchParams]);
+    initializeParams();
+  }, [initializeParams]);
 
   const handleOptionChange = useCallback(
     (nameOption: string, value: string): void => {
-      dispatch(setFilter({ [nameOption]: value }));
-      updateURLParams(nameOption, value, searchParams, setSearchParams);
+      updateCombinedParams(nameOption, value);
     },
-    [dispatch, searchParams, setSearchParams],
+    [updateCombinedParams],
   );
 
   const handleClickOpenModal = (): void => {

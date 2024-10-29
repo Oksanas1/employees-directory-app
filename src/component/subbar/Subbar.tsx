@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
+import React, { useCallback, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import FilterOption from '../filter-oprion/FilterOption';
 import { RootState } from '../../store';
-import { setFilter, type EmployeePosition } from '../../state/employeesSlice';
-import { updateURLParams } from '../common';
+import { type EmployeePosition } from '../../state/employeesSlice';
+import { useCombinedURLParams } from '../common';
 import './subbar.scss';
 
 export type PositionWork = 'All' | 'Designers' | 'Analysts' | 'Managers' | 'iOS' | 'Android';
@@ -24,21 +23,17 @@ const listOfFilterOption: Option[] = [
   { id: 6, option: 'Android', positionEmployee: 'android' },
 ];
 
-const Subbar = () => {
-  const dispatch = useDispatch();
+const Subbar: React.FC = () => {
   const { position } = useSelector((state: RootState) => state.employees.filter);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const positionFromURL = searchParams.get('position') || position;
+  const { initializeParams, updateCombinedParams } = useCombinedURLParams();
 
   useEffect(() => {
-    dispatch(setFilter({ position: positionFromURL }));
-    updateURLParams('position', positionFromURL, searchParams, setSearchParams);
-  }, [dispatch, searchParams, position]);
+    initializeParams();
+  }, [initializeParams]);
 
-  const handleChangeFilter = (value: EmployeePosition): void => {
-    dispatch(setFilter({ position: value }));
-    updateURLParams('position', value, searchParams, setSearchParams);
-  };
+  const handleChangeFilter = useCallback((value: EmployeePosition): void => {
+    updateCombinedParams('position', value);
+  }, [updateCombinedParams]);
 
   return (
     <div className="subbar">
