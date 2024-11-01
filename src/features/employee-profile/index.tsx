@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import ErrorPage from '../error-page';
 import Spinner from '../../entities/spinner';
-import { RootState } from '../../redux/store';
-import { type Employee } from '../../redux/employeesSlice';
+import { AppDispatch, RootState } from '../../redux/store';
+import { fetchEmployees, type Employee } from '../../redux/employeesSlice';
 import { formatTimestampToYears, formatTimestampToFullDateString } from './config/formatTimeToAge';
 import { formatPhoneNumber } from './config/formatPhoneNumber';
-import { getEmployeeByIdFromDB } from '../../entities/employee/getawey';
 import './index.scss';
 
 const EmployeeProfile: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const { employees } = useSelector((state: RootState) => state.employees);
-  const [isLoading, setIsLoading] = useState(true);
+  const { employees, statusQuery } = useSelector((state: RootState) => state.employees);
   const [employee, setEmployee] = useState<Employee | null>(null);
 
   useEffect(() => {
@@ -22,20 +21,11 @@ const EmployeeProfile: React.FC = () => {
       const foundEmployee = employees.find(emp => emp.id === id) || null;
       setEmployee(foundEmployee);
     } else if (id) {
-      getEmployeeByIdFromDB(id)
-        .then(fetchedEmployee => {
-          setEmployee(fetchedEmployee);
-          setIsLoading(false);
-        })
-        .catch(err => {
-          console.error(err);
-          setIsLoading(false);
-          setEmployee(null);
-        });
+      dispatch(fetchEmployees());
     }
-  }, [employees, id]);
+  }, [dispatch, employees, id]);
 
-  if (isLoading && !employee) {
+  if (statusQuery === 'loading') {
     return (
       <div className="spinner_center">
         <Spinner />
