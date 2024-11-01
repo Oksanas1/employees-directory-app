@@ -32,6 +32,7 @@ export const useCombinedURLParams = () => {
       if (value !== '' && value !== 'nameSort' && value !== 'all') {
         newParams.set(key, value);
       }
+      localStorage.setItem(`${key}`, value);
     });
     setSearchParams(newParams);
   }, [searchParams, setSearchParams]);
