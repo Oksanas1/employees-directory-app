@@ -21,12 +21,6 @@ export const useCombinedURLParams = () => {
   };
 
   const initializeParams = useCallback(() => {
-    // const urlParams: FilterOption = {
-    //   sortBy: getURLParams('sortBy', 'nameSort') as SortOption,
-    //   searchText: getURLParams('searchText', ''),
-    //   position: getURLParams('position', 'all') as EmployeePosition,
-    // };
-
     const newParams = new URLSearchParams(searchParams);
     Object.entries(urlParams).forEach(([key, value]) => {
       if (value !== '' && value !== 'nameSort' && value !== 'all') {
