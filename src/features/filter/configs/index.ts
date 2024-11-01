@@ -14,41 +14,45 @@ export const useCombinedURLParams = () => {
   const getURLParams = (key: string, defaultValue: string) =>
     searchParams.get(key) || localStorage.getItem(key) || defaultValue;
 
-  const initializeParams = useCallback((): FilterOption => {
-    const urlParams = {
-      sortBy: getURLParams('sortBy', 'nameSort') as SortOption,
-      searchText: getURLParams('searchText', ''),
-      position: getURLParams('position', 'all') as EmployeePosition,
-    };
+  const urlParams: FilterOption = {
+    sortBy: getURLParams('sortBy', 'nameSort') as SortOption,
+    searchText: getURLParams('searchText', ''),
+    position: getURLParams('position', 'all') as EmployeePosition,
+  };
+
+  const initializeParams = useCallback(() => {
+    // const urlParams: FilterOption = {
+    //   sortBy: getURLParams('sortBy', 'nameSort') as SortOption,
+    //   searchText: getURLParams('searchText', ''),
+    //   position: getURLParams('position', 'all') as EmployeePosition,
+    // };
 
     const newParams = new URLSearchParams(searchParams);
     Object.entries(urlParams).forEach(([key, value]) => {
-      if (value) newParams.set(key, value);
+      if (value !== '' && value !== 'nameSort' && value !== 'all') {
+        newParams.set(key, value);
+      }
     });
     setSearchParams(newParams);
-    return urlParams;
   }, [searchParams, setSearchParams]);
 
   const updateCombinedParams = useCallback(
     (key: string, value: string) => {
       const newParams = new URLSearchParams(searchParams);
 
-      if (value) {
+      if (value !== '' && value !== 'nameSort' && value !== 'all') {
         newParams.set(key, value);
         localStorage.setItem(`${key}`, value);
       } else {
         newParams.delete(key);
+        localStorage.setItem(`${key}`, value);
       }
       setSearchParams(newParams);
     },
     [searchParams, setSearchParams],
   );
 
-  const getSearchParams = (): FilterOption => ({
-    sortBy: getURLParams('sortBy', 'nameSort') as SortOption,
-    searchText: getURLParams('searchText', ''),
-    position: getURLParams('position', 'all') as EmployeePosition,
-  });
+  const getSearchParams = (): FilterOption => urlParams;
 
   return { initializeParams, updateCombinedParams, getSearchParams };
 };
