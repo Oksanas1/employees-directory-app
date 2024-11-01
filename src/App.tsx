@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './store';
-import EmployeeProfile from './component/employee-profile/EmployeeProfile';
-import EmployeeList from './component/employee-list/EmployeeList';
-import ErrorPage from './component/error-page/ErrorPage';
+import { store } from './redux/store';
+import EmployeeProfile from './features/employee-profile';
+import EmployeeList from './features/employee-list';
+import ErrorPage from './features/error-page';
 import './index.scss';
 
 const App: React.FC = () => (

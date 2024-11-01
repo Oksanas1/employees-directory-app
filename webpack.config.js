@@ -29,7 +29,7 @@ module.exports = (_, argv) => {
             {
               loader: 'sass-resources-loader',
               options: {
-                resources: path.resolve(__dirname, 'src/styles/*.scss'),
+                resources: path.resolve(__dirname, 'src/scss/*.scss'),
               },
             },
           ],
@@ -57,11 +57,11 @@ module.exports = (_, argv) => {
       new CleanWebpackPlugin(),
       new CopyWebpackPlugin({
         patterns: [
-            { from: '_redirects', to: './' }
+            { from: './public/_redirects', to: './' }
         ],
       }),
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './index.html',
         scriptLoading: 'blocking',
       }),
     ],
