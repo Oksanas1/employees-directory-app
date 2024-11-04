@@ -1,5 +1,5 @@
 import React from 'react';
-import ReportInformation from '../../entities/report-information';
+import ReportInformation from '../../common/components/report-information';
 import './index.scss';
 
 const ErrorPage = () => (

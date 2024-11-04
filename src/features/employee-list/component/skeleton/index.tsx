@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../../../filter';
-import { calculateSkeletonCount } from './config/culcItemToSculeton';
+import { calculateSkeletonCount } from './utils';
 
 import './index.scss';
 

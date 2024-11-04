@@ -1,4 +1,4 @@
-import { formatTimestampToYears } from '../formatTimeToAge';
+import { formatTimestampToYears } from '..';
 
 it('should return "0 years" for the current date', () => {
   const currentTimestamp = Date.now();

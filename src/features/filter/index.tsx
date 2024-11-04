@@ -1,6 +1,6 @@
 import React from 'react';
-import Searchbar from './searchbar';
-import Subbar from './subbar';
+import Searchbar from './components/searchbar';
+import Subbar from './components/subbar';
 import './index.scss';
 
 const Navigation: React.FC = () => (

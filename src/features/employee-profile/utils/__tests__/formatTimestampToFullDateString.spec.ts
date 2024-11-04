@@ -1,4 +1,4 @@
-import { formatTimestampToFullDateString } from '../formatTimeToAge';
+import { formatTimestampToFullDateString } from '..';
 
 it('should format a valid timestamp to a full date string', () => {
   const timestamp = new Date('2024-10-18T00:00:00Z').getTime();

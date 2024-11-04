@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import SortOptions from '../sort-options';
-import { useCombinedURLParams } from '../configs';
+import { useCombinedURLParams } from '../../hooks';
 import './index.scss';
 
 const Searchbar: React.FC = () => {

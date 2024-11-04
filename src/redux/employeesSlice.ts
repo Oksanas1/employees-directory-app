@@ -1,17 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getEmployeeFromDB } from '../entities/employee/getawey/index';
-import type { EmployeePosition, StatusQuery } from '../entities/employee/types/index';
-
-export type Employee = {
-  id: string;
-  name: string;
-  position: EmployeePosition;
-  birthDate: number;
-  phone: string;
-  avatar: string;
-  tag: string | null;
-  email: string;
-};
+import type { StatusQuery, Employee } from '../entities/employee/types/index';
 
 export type EmployeesState = {
   employees: Employee[];

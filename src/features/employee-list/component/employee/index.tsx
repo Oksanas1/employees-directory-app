@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Employee } from '../../../../redux/employeesSlice';
-import { formatTimestampToDateString } from './config/dateTransforme';
+import { formatTimestampToDateString } from './utils';
+import type { Employee } from '../../../../entities/employee/types';
 import './index.scss';
 
 type EmployeeInfoProps = {

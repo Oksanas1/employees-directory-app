@@ -1,4 +1,5 @@
-import type { Employee } from '../../../redux/employeesSlice';
+import ErrorPage from '../../../features/error-page';
+import type { Employee } from '../types';
 
 const baseUrl = 'https://66a0f8b17053166bcabd894e.mockapi.io/api/workers';
 
@@ -8,4 +9,7 @@ export const getEmployeeFromDB = (): Promise<Employee[]> =>
       return response.json();
     }
     throw new Error(`${response.status}`);
-  });
+  })
+    .catch(err => {
+      console.log(err)
+    });

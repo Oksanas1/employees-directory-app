@@ -3,7 +3,7 @@ import './index.scss';
 
 const Spinner: React.FC = () => (
   <div className="spinner">
-    <i className="fa-solid fa-spinner"></i>
+    <i className="fa-solid fa-spinner" />
   </div>
 );
 

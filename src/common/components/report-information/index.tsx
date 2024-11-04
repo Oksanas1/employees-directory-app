@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
-import loope from '../../../public/images/loope.png';
-import enlo from '../../../public/images/enlo.png';
+import loope from '../../../../public/images/loope.png';
+import enlo from '../../../../public/images/enlo.png';
 
 type ReportInformationProps = {
   title: string;

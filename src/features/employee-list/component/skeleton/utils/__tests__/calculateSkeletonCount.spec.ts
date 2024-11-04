@@ -1,4 +1,4 @@
-import { calculateSkeletonCount } from '../culcItemToSculeton';
+import { calculateSkeletonCount } from '..';
 
 beforeAll(() => {
   Object.defineProperty(window, 'innerHeight', { value: 800 });

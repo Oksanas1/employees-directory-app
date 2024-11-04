@@ -1,29 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import ErrorPage from '../error-page';
-import Spinner from '../../entities/spinner';
-import { AppDispatch, RootState } from '../../redux/store';
-import { fetchEmployees, type Employee } from '../../redux/employeesSlice';
-import { formatTimestampToYears, formatTimestampToFullDateString } from './config/formatTimeToAge';
-import { formatPhoneNumber } from './config/formatPhoneNumber';
+import Spinner from '../../common/components/spinner';
+import { RootState } from '../../redux/store';
+import { formatTimestampToYears, formatTimestampToFullDateString } from './utils';
+import { formatPhoneNumber } from './utils/formatPhoneNumber';
+import type { Employee } from '../../entities/employee/types';
 import './index.scss';
 
 const EmployeeProfile: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const { employees, statusQuery } = useSelector((state: RootState) => state.employees);
-  const [employee, setEmployee] = useState<Employee | null>(null);
-
-  useEffect(() => {
-    if (employees.length) {
-      const foundEmployee = employees.find(emp => emp.id === id) || null;
-      setEmployee(foundEmployee);
-    } else if (id) {
-      dispatch(fetchEmployees());
-    }
-  }, [dispatch, employees, id]);
+  const employee: Employee | null = employees.find(emp => emp.id === id) || null;
 
   if (statusQuery === 'loading') {
     return (
