@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import Navigation from '../filter';
 import ReportInformation from '../../common/components/report-information';
 import EmployeesGroup from './component/employees-group';

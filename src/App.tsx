@@ -17,13 +17,13 @@ const App: React.FC = () => {
   ,[dispatch]);
 
   return (
-      <Router basename="/">
-        <Routes>
-          <Route path="/" element={<EmployeeList />} />
-          <Route path="/employees/:id" element={<EmployeeProfile />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </Router>
+    <Router basename="/">
+      <Routes>
+        <Route path="/" element={<EmployeeList />} />
+        <Route path="/employees/:id" element={<EmployeeProfile />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </Router>
   );
 };
 export default App;

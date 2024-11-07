@@ -5,9 +5,6 @@ import type { EmployeePosition } from '../../../../entities/employee/types';
 import { listOfFilterOption } from './configs';
 import './index.scss';
 
-
-
-
 const Subbar: React.FC = () => {
   const { initializeParams, updateCombinedParams, getSearchParams } = useCombinedURLParams();
   const { position } = getSearchParams();
