@@ -19,6 +19,7 @@ const EmployeeList: React.FC = () => {
 
   if (statusQuery === 'loading' && !employees.length) {
     return <SkeletonLoader />;
+    
   }
 
   if (statusQuery === 'failed') {
